@@ -1,0 +1,739 @@
+@import "tailwindcss";
+
+/* ===== GOOGLE FONTS IMPORT ===== */
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800&family=Noto+Sans+Bengali:wght@400;600;700&family=Outfit:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&family=Space+Grotesk:wght@500;600;700;800&family=Space+Mono:wght@400;700&display=swap');
+
+@theme {
+  --font-display: 'Space Grotesk', 'Plus Jakarta Sans', sans-serif;
+  --font-hero: 'Space Grotesk', 'Plus Jakarta Sans', sans-serif;
+  --font-mono: 'Space Mono', monospace;
+  --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-body: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-bengali: 'Noto Sans Bengali', sans-serif;
+  --font-temple: 'Cinzel', serif;
+}
+
+:root {
+  --font-hero: 'Space Grotesk', 'Plus Jakarta Sans', sans-serif;
+  --font-display: 'Space Grotesk', 'Plus Jakarta Sans', sans-serif;
+  --font-nav: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-body: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-bengali: 'Noto Sans Bengali', sans-serif;
+  --font-mono: 'Space Mono', monospace;
+  --font-temple: 'Cinzel', serif;
+}
+
+html {
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+  background-color: #060913;
+  color: #f8fafc;
+}
+
+html, body, #root {
+  min-height: 100%;
+}
+
+body {
+  font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  cursor: default;
+  overflow-x: hidden;
+  min-height: 100vh;
+  background-color: transparent;
+  color: #f8fafc;
+  transition: color 0.5s ease;
+}
+
+html.theme-day,
+body.theme-day,
+#root.theme-day {
+  background-color: transparent;
+  color: #0f172a;
+}
+
+html.theme-night,
+body.theme-night,
+#root.theme-night {
+  background-color: transparent;
+  color: #f8fafc;
+}
+
+*, *::before, *::after {
+  cursor: default;
+}
+
+a, button, input, select, textarea, [role="button"] {
+  cursor: pointer !important;
+}
+
+/* Headings with delicate readable shadow */
+h1, h2, h3, h4, h5, h6, 
+.font-hero, .hero-title, .page-title, .font-display {
+  font-family: 'Space Grotesk', 'Plus Jakarta Sans', sans-serif;
+  letter-spacing: -0.025em;
+  line-height: 1.15;
+}
+
+.font-nav {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+}
+
+.font-bengali {
+  font-family: 'Noto Sans Bengali', sans-serif;
+}
+
+.font-mono {
+  font-family: 'Space Mono', monospace;
+}
+
+.font-temple {
+  font-family: 'Cinzel', serif;
+}
+
+/* ==========================================================================
+   BACKGROUND VIDEOS: Full Edge-to-Edge Coverage
+   ========================================================================== */
+.bg-video-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  z-index: 0;
+  pointer-events: none;
+  background-color: #060913;
+}
+
+.bg-video {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100vw;
+  height: 100vh;
+  min-width: 100%;
+  min-height: 100%;
+  max-width: none;
+  max-height: none;
+  object-fit: cover;
+  object-position: center center;
+  transition: opacity 1.2s cubic-bezier(0.4, 0, 0.2, 1);
+  will-change: opacity;
+  pointer-events: none;
+}
+
+/* Ultra-light Scrim so background video is crystal clear and vivid */
+.video-overlay-scrim {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 1;
+  pointer-events: none;
+  background: radial-gradient(circle at 50% 30%, rgba(6, 9, 20, 0.08) 0%, rgba(3, 5, 14, 0.28) 100%);
+  transition: background 1.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.theme-day .video-overlay-scrim {
+  background: radial-gradient(circle at 50% 30%, rgba(255, 255, 255, 0.04) 0%, rgba(240, 246, 255, 0.16) 100%);
+}
+
+/* ==========================================================================
+   EXTREME GLASSMORPHISM: 5% OPACITY & SUBTLE MINIMAL BLUR
+   (Background behind it is almost completely transparent and clearly visible)
+   ========================================================================== */
+.glass-panel {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  border: 1px solid rgba(255, 255, 255, 0.13);
+  box-shadow: 
+    0 8px 32px 0 rgba(0, 0, 0, 0.2),
+    inset 0 1px 0 0 rgba(255, 255, 255, 0.18);
+}
+
+.glass-panel-deep {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  box-shadow: 
+    0 12px 36px 0 rgba(0, 0, 0, 0.22),
+    inset 0 1px 0 0 rgba(255, 255, 255, 0.22);
+}
+
+.glass-card {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  border: 1px solid rgba(255, 255, 255, 0.11);
+  box-shadow: 
+    0 8px 24px 0 rgba(0, 0, 0, 0.15),
+    inset 0 1px 0 0 rgba(255, 255, 255, 0.15);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.glass-card:hover {
+  background: rgba(255, 255, 255, 0.09);
+  border-color: rgba(255, 255, 255, 0.24);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  box-shadow: 
+    0 12px 32px 0 rgba(0, 0, 0, 0.22),
+    0 0 18px rgba(59, 130, 246, 0.18),
+    inset 0 1px 0 0 rgba(255, 255, 255, 0.28);
+  transform: translateY(-3px);
+}
+
+/* Roof-Pinned Navbar: Transparent at top, glass panel after scroll */
+.roof-navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  z-index: 50;
+  background: transparent !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+  border: none !important;
+  box-shadow: none !important;
+  pointer-events: auto;
+  transition: all 0.3s ease;
+}
+
+.roof-navbar-scrolled {
+  background: transparent !important;
+}
+
+/* Day Theme: Transparent Navbar */
+.theme-day .roof-navbar {
+  background: transparent !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+  border: none !important;
+  box-shadow: none !important;
+}
+
+.theme-day .roof-navbar-scrolled > div {
+  background: rgba(255, 255, 255, 0.48) !important;
+  border-color: rgba(15, 23, 42, 0.08) !important;
+  box-shadow: 0 12px 30px rgba(15, 23, 42, 0.08) !important;
+}
+
+.theme-day .glass-panel {
+  background: rgba(255, 255, 255, 0.05) !important;
+  backdrop-filter: blur(5px) !important;
+  -webkit-backdrop-filter: blur(5px) !important;
+  border: 1px solid rgba(15, 23, 42, 0.1) !important;
+  box-shadow: 
+    0 8px 24px rgba(15, 23, 42, 0.04),
+    inset 0 1px 0 0 rgba(255, 255, 255, 0.5) !important;
+  color: #0f172a !important;
+}
+
+.theme-day .glass-panel-deep {
+  background: rgba(255, 255, 255, 0.06) !important;
+  backdrop-filter: blur(5px) !important;
+  -webkit-backdrop-filter: blur(5px) !important;
+  border: 1px solid rgba(15, 23, 42, 0.12) !important;
+  box-shadow: 
+    0 10px 28px rgba(15, 23, 42, 0.05),
+    inset 0 1px 0 0 rgba(255, 255, 255, 0.6) !important;
+  color: #0f172a !important;
+}
+
+.theme-day .glass-card {
+  background: rgba(255, 255, 255, 0.05) !important;
+  backdrop-filter: blur(4px) !important;
+  -webkit-backdrop-filter: blur(4px) !important;
+  border: 1px solid rgba(15, 23, 42, 0.09) !important;
+  box-shadow: 
+    0 6px 18px rgba(15, 23, 42, 0.03),
+    inset 0 1px 0 0 rgba(255, 255, 255, 0.5) !important;
+  color: #0f172a !important;
+}
+
+.theme-day .glass-card:hover {
+  background: rgba(255, 255, 255, 0.09) !important;
+  border-color: rgba(15, 23, 42, 0.18) !important;
+  box-shadow: 
+    0 10px 26px rgba(15, 23, 42, 0.06),
+    0 0 16px rgba(59, 130, 246, 0.12),
+    inset 0 1px 0 0 rgba(255, 255, 255, 0.7) !important;
+}
+
+/* Mobile Menu Button: Strictly Hidden on Desktop (>= 1024px) */
+.mobile-menu-button {
+  display: none !important;
+}
+
+@media (max-width: 1023px) {
+  .mobile-menu-button {
+    display: inline-flex !important;
+    align-items: center;
+    justify-content: center;
+    width: 2.1rem;
+    height: 2.1rem;
+    border-radius: 0.55rem;
+    border: 1px solid rgba(255, 255, 255, 0.16);
+    background: rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    transition: all 0.2s ease;
+  }
+
+  .mobile-menu-button:hover,
+  .mobile-menu-button:active {
+    background: rgba(255, 255, 255, 0.15);
+    border-color: rgba(255, 255, 255, 0.32);
+    transform: scale(1.04);
+  }
+
+  .theme-day .mobile-menu-button {
+    border-color: rgba(15, 23, 42, 0.14);
+    background: rgba(255, 255, 255, 0.75);
+    box-shadow: 0 2px 8px rgba(15, 23, 42, 0.06);
+  }
+
+  .theme-day .mobile-menu-button:hover,
+  .theme-day .mobile-menu-button:active {
+    background: rgba(255, 255, 255, 0.95);
+    border-color: rgba(15, 23, 42, 0.28);
+  }
+}
+
+.mobile-nav-panel {
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  background: rgba(6, 10, 20, 0.92);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  box-shadow: 0 24px 50px -10px rgba(0, 0, 0, 0.6), inset 0 1px 0 rgba(255, 255, 255, 0.15);
+}
+
+.theme-day .mobile-nav-panel {
+  background: rgba(255, 255, 255, 0.96) !important;
+  border-color: rgba(15, 23, 42, 0.12) !important;
+  box-shadow: 0 20px 45px -10px rgba(15, 23, 42, 0.12), inset 0 1px 0 rgba(255, 255, 255, 0.9) !important;
+}
+
+.mobile-nav-link {
+  transition: transform 0.2s ease, background 0.2s ease, box-shadow 0.2s ease;
+}
+
+.mobile-nav-link:hover {
+  transform: translateX(2px);
+}
+
+/* Translucent Glass Footers: 5% Opacity */
+.day-mode-footer {
+  position: relative;
+  background: rgba(255, 255, 255, 0.04);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  border-color: rgba(255, 255, 255, 0.1);
+  color: #e2e8f0;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.08);
+}
+
+.theme-day-footer {
+  background: rgba(255, 255, 255, 0.05) !important;
+  backdrop-filter: blur(5px) !important;
+  -webkit-backdrop-filter: blur(5px) !important;
+  border-color: rgba(15, 23, 42, 0.08) !important;
+  color: #0f172a !important;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.4), 0 -8px 20px rgba(15, 23, 42, 0.02) !important;
+}
+
+.theme-night-footer {
+  background: rgba(255, 255, 255, 0.04);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  border-color: rgba(255, 255, 255, 0.1);
+  color: #e2e8f0;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.08);
+}
+
+/* ==========================================================================
+   PEOPLE FIGURES (Freestanding with Radiant Neon Contour Glow)
+   ========================================================================== */
+.freestanding-figure {
+  display: block;
+  border-radius: 26px;
+  background: linear-gradient(135deg, rgba(255,255,255,0.2), rgba(59,130,246,0.08));
+  border: 1.5px solid rgba(125, 211, 252, 0.85);
+  padding: 8px;
+  box-shadow:
+    0 0 12px rgba(96, 165, 250, 0.6),
+    0 0 28px rgba(59, 130, 246, 0.4),
+    inset 0 0 14px rgba(255, 255, 255, 0.18),
+    0 16px 24px rgba(0, 0, 0, 0.45);
+  filter: 
+    drop-shadow(0 0 8px rgba(56, 189, 248, 0.7))
+    drop-shadow(0 0 20px rgba(59, 130, 246, 0.45))
+    drop-shadow(0 14px 22px rgba(0, 0, 0, 0.6));
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), filter 0.4s ease, box-shadow 0.4s ease, border-color 0.4s ease;
+  will-change: transform;
+}
+
+.freestanding-figure:hover {
+  transform: translateY(-4px) scale(1.03);
+  border-color: rgba(191, 219, 254, 0.95);
+  box-shadow:
+    0 0 16px rgba(125, 211, 252, 0.8),
+    0 0 28px rgba(59, 130, 246, 0.5),
+    inset 0 0 16px rgba(255, 255, 255, 0.22),
+    0 18px 26px rgba(0, 0, 0, 0.58);
+  filter: 
+    drop-shadow(0 0 14px rgba(56, 189, 248, 0.95))
+    drop-shadow(0 0 30px rgba(59, 130, 246, 0.65))
+    drop-shadow(0 18px 26px rgba(0, 0, 0, 0.7));
+}
+
+.theme-day .freestanding-figure {
+  background: linear-gradient(135deg, rgba(255,255,255,0.8), rgba(191,219,254,0.22));
+  border-color: rgba(59, 130, 246, 0.55);
+  box-shadow:
+    0 0 10px rgba(96, 165, 250, 0.35),
+    0 0 18px rgba(34, 211, 238, 0.18),
+    inset 0 0 10px rgba(255, 255, 255, 0.4),
+    0 10px 16px rgba(15, 23, 42, 0.12);
+  filter: 
+    drop-shadow(0 0 7px rgba(37, 99, 235, 0.55))
+    drop-shadow(0 0 16px rgba(6, 182, 212, 0.35))
+    drop-shadow(0 10px 16px rgba(15, 23, 42, 0.2));
+}
+
+.theme-day .freestanding-figure:hover {
+  border-color: rgba(37, 99, 235, 0.8);
+  box-shadow:
+    0 0 14px rgba(96, 165, 250, 0.5),
+    0 0 20px rgba(34, 211, 238, 0.28),
+    inset 0 0 12px rgba(255, 255, 255, 0.5),
+    0 12px 18px rgba(15, 23, 42, 0.18);
+  filter: 
+    drop-shadow(0 0 12px rgba(37, 99, 235, 0.75))
+    drop-shadow(0 0 24px rgba(6, 182, 212, 0.5));
+}
+
+/* Radiant Neon Border Glow for Framed Images */
+.neon-img-glow {
+  position: relative;
+  border-radius: 1rem;
+  border: 1.5px solid rgba(56, 189, 248, 0.6) !important;
+  box-shadow: 
+    0 0 14px rgba(56, 189, 248, 0.45),
+    0 0 30px rgba(59, 130, 246, 0.25),
+    inset 0 0 14px rgba(56, 189, 248, 0.2) !important;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.neon-img-glow:hover {
+  border-color: rgba(147, 197, 253, 0.9) !important;
+  box-shadow: 
+    0 0 22px rgba(56, 189, 248, 0.7),
+    0 0 45px rgba(59, 130, 246, 0.45),
+    inset 0 0 20px rgba(56, 189, 248, 0.3) !important;
+}
+
+.theme-day .neon-img-glow {
+  border: 1.5px solid rgba(37, 99, 235, 0.45) !important;
+  box-shadow: 
+    0 0 12px rgba(37, 99, 235, 0.35),
+    0 0 26px rgba(6, 182, 212, 0.2),
+    inset 0 0 10px rgba(37, 99, 235, 0.15) !important;
+}
+
+/* Subtle glowing pedestal base under freestanding figures */
+.pedestal-glow {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+}
+
+.pedestal-glow::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80%;
+  height: 28px;
+  background: radial-gradient(ellipse at center, rgba(56, 189, 248, 0.45) 0%, rgba(59, 130, 246, 0.2) 50%, transparent 75%);
+  filter: blur(8px);
+  pointer-events: none;
+}
+
+.theme-day .pedestal-glow::after {
+  background: radial-gradient(ellipse at center, rgba(37, 99, 235, 0.3) 0%, transparent 75%);
+}
+
+/* ==========================================================================
+   HALL OF FAME: GRAND TEMPLE OF HONOR - 5% Glass Pedestals
+   ========================================================================== */
+.temple-column {
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.02) 100%);
+  border-left: 1px solid rgba(255, 255, 255, 0.12);
+  border-right: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.temple-pedestal {
+  position: relative;
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  box-shadow: 
+    0 12px 30px rgba(0, 0, 0, 0.2),
+    inset 0 1px 0 rgba(255, 255, 255, 0.15);
+  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.temple-pedestal:hover {
+  border-color: rgba(56, 189, 248, 0.5);
+  transform: translateY(-5px);
+  background: rgba(255, 255, 255, 0.08);
+  box-shadow: 
+    0 18px 40px rgba(0, 0, 0, 0.35), 
+    0 0 25px rgba(56, 189, 248, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.25);
+}
+
+.temple-pedestal::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 20%;
+  right: 20%;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, rgba(251, 191, 36, 0.8), transparent);
+}
+
+.theme-day .temple-pedestal {
+  background: rgba(255, 255, 255, 0.06) !important;
+  backdrop-filter: blur(4px) !important;
+  -webkit-backdrop-filter: blur(4px) !important;
+  border: 1px solid rgba(15, 23, 42, 0.1) !important;
+  box-shadow: 0 10px 24px rgba(15, 23, 42, 0.04), inset 0 1px 0 rgba(255, 255, 255, 0.5) !important;
+}
+
+.theme-day .temple-pedestal:hover {
+  border-color: rgba(217, 119, 6, 0.4) !important;
+  background: rgba(255, 255, 255, 0.1) !important;
+  box-shadow: 0 14px 32px rgba(15, 23, 42, 0.07), 0 0 16px rgba(217, 119, 6, 0.15) !important;
+}
+
+/* Aura Glows */
+.aura-gold {
+  background: radial-gradient(circle at 50% 45%, rgba(251, 191, 36, 0.2) 0%, transparent 70%);
+}
+.aura-sapphire {
+  background: radial-gradient(circle at 50% 45%, rgba(59, 130, 246, 0.2) 0%, transparent 70%);
+}
+.aura-amethyst {
+  background: radial-gradient(circle at 50% 45%, rgba(168, 85, 247, 0.2) 0%, transparent 70%);
+}
+.aura-silver {
+  background: radial-gradient(circle at 50% 45%, rgba(148, 163, 184, 0.15) 0%, transparent 70%);
+}
+
+/* ==========================================================================
+   EVENT CARDS
+   ========================================================================== */
+.home-event-card {
+  border: 1px solid rgba(255, 255, 255, 0.11) !important;
+  box-shadow: 0 10px 26px rgba(0, 0, 0, 0.2), inset 0 1px 0 rgba(255, 255, 255, 0.15) !important;
+}
+
+.theme-day .home-event-card {
+  border: 1px solid rgba(15, 23, 42, 0.09) !important;
+  box-shadow: 0 8px 20px rgba(15, 23, 42, 0.04), inset 0 1px 0 rgba(255, 255, 255, 0.5) !important;
+}
+
+.home-event-card .event-media img {
+  filter: grayscale(100%) contrast(106%);
+  transition: filter 0.5s cubic-bezier(0.16, 1, 0.3, 1), transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.home-event-card:hover .event-media img {
+  filter: grayscale(0%) contrast(100%);
+  transform: scale(1.05);
+}
+
+/* Dedicated Events Page */
+.event-item-glorified {
+  position: relative;
+  overflow: hidden;
+}
+
+.event-item-glorified img {
+  filter: contrast(106%) saturate(118%);
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1), filter 0.4s ease;
+}
+
+.event-item-glorified:hover img {
+  transform: scale(1.06);
+  filter: contrast(110%) saturate(128%);
+}
+
+/* ==========================================================================
+   BUTTONS: Sleek Luminous Gradient Glass CTA & True Glass Menus
+   ========================================================================== */
+.btn-glass-cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, rgba(37, 99, 235, 0.88) 0%, rgba(79, 70, 229, 0.88) 50%, rgba(6, 182, 212, 0.88) 100%) !important;
+  backdrop-filter: blur(8px) !important;
+  -webkit-backdrop-filter: blur(8px) !important;
+  color: #ffffff !important;
+  font-weight: 700 !important;
+  border: 1px solid rgba(147, 197, 253, 0.5) !important;
+  box-shadow: 
+    0 4px 16px rgba(37, 99, 235, 0.35),
+    0 0 16px rgba(56, 189, 248, 0.25),
+    inset 0 1px 0 rgba(255, 255, 255, 0.45) !important;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1) !important;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.25);
+}
+
+.btn-glass-cta:hover {
+  background: linear-gradient(135deg, rgba(29, 78, 216, 0.96) 0%, rgba(67, 56, 202, 0.96) 50%, rgba(8, 145, 178, 0.96) 100%) !important;
+  border-color: rgba(191, 219, 254, 0.85) !important;
+  box-shadow: 
+    0 6px 24px rgba(37, 99, 235, 0.55),
+    0 0 24px rgba(56, 189, 248, 0.45),
+    inset 0 1px 0 rgba(255, 255, 255, 0.7) !important;
+  transform: translateY(-2px) scale(1.03) !important;
+  color: #ffffff !important;
+}
+
+.theme-day .btn-glass-cta {
+  background: linear-gradient(135deg, #2563eb 0%, #4f46e5 50%, #0891b2 100%) !important;
+  color: #ffffff !important;
+  border: 1px solid rgba(255, 255, 255, 0.4) !important;
+  box-shadow: 
+    0 4px 14px rgba(37, 99, 235, 0.3),
+    0 0 12px rgba(6, 182, 212, 0.2),
+    inset 0 1px 0 rgba(255, 255, 255, 0.4) !important;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+.theme-day .btn-glass-cta:hover {
+  background: linear-gradient(135deg, #1d4ed8 0%, #4338ca 50%, #0e7490 100%) !important;
+  box-shadow: 
+    0 6px 20px rgba(37, 99, 235, 0.45),
+    0 0 18px rgba(6, 182, 212, 0.3) !important;
+  transform: translateY(-2px) scale(1.03) !important;
+  color: #ffffff !important;
+}
+
+/* True Glass Dropdowns for Navbar */
+.nav-dropdown-glass {
+  background: rgba(8, 14, 28, 0.45) !important;
+  backdrop-filter: blur(20px) !important;
+  -webkit-backdrop-filter: blur(20px) !important;
+  border: 1px solid rgba(255, 255, 255, 0.16) !important;
+  box-shadow: 0 20px 48px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.2) !important;
+}
+
+.theme-day .nav-dropdown-glass {
+  background: rgba(255, 255, 255, 0.35) !important;
+  backdrop-filter: blur(20px) !important;
+  -webkit-backdrop-filter: blur(20px) !important;
+  border: 1px solid rgba(15, 23, 42, 0.12) !important;
+  box-shadow: 0 16px 36px rgba(15, 23, 42, 0.1), inset 0 1px 0 rgba(255, 255, 255, 0.6) !important;
+}
+
+/* Squircle Logo: 5% Glass */
+.brand-logo-squircle {
+  width: 34px;
+  height: 34px;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  flex-shrink: 0;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.brand-logo-squircle img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  transform: scale(1.18);
+  transform-origin: center;
+}
+
+.brand-logo-squircle:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 16px rgba(59, 130, 246, 0.4);
+}
+
+.theme-day .brand-logo-squircle {
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(15, 23, 42, 0.14);
+  box-shadow: 0 2px 8px rgba(15, 23, 42, 0.06);
+}
+
+.facebook-link-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.45rem;
+  padding: 0.45rem 0.8rem;
+  border-radius: 9999px;
+  border: 1px solid rgba(96, 165, 250, 0.28);
+  background: rgba(59, 130, 246, 0.06);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  color: #60a5fa;
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.15);
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease, background 0.2s ease;
+}
+
+.facebook-link-btn:hover {
+  transform: translateY(-1px);
+  background: rgba(59, 130, 246, 0.12);
+  box-shadow: 0 8px 18px rgba(59, 130, 246, 0.2), inset 0 1px 0 rgba(255, 255, 255, 0.25);
+  border-color: rgba(96, 165, 250, 0.6);
+}
+
+.theme-day .facebook-link-btn {
+  background: rgba(37, 99, 235, 0.05);
+  color: #1d4ed8;
+  border-color: rgba(37, 99, 235, 0.22);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.4);
+}
+
+/* Lightbox Backdrop */
+.lightbox-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  background: rgba(3, 5, 12, 0.55);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

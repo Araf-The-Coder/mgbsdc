@@ -1,0 +1,6 @@
+{
+  "name": "MGBSDC - Motijheel Govt. Boys' School Debating Club",
+  "description": "Where Words Become Power. Official portal of Motijheel Government Boys' School Debating Club, Est. 1996.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

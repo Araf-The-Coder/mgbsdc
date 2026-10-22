@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>MGBSDC Admin Portal</title>
+  <style>
+    body { font-family: sans-serif; background: #0f172a; color: #f8fafc; padding: 2rem; max-width: 800px; margin: auto; }
+    .card { background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); padding: 1.5rem; border-radius: 12px; margin-bottom: 2rem; }
+    input, textarea, button { width: 100%; padding: 0.75rem; margin-top: 0.5rem; margin-bottom: 1rem; border-radius: 6px; border: none; box-sizing: border-box; }
+    input, textarea { background: #1e293b; color: white; }
+    button { background: #3b82f6; color: white; font-weight: bold; cursor: pointer; }
+    .hidden { display: none; }
+  </style>
+
+  <!-- Supabase CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+</head>
+<body>
+
+  <!-- Login Gate -->
+  <div id="login-box" class="card">
+    <h2>Admin Login</h2>
+    <input type="password" id="admin-pass" placeholder="Enter Admin Password">
+    <button onclick="login()">Enter Portal</button>
+  </div>
+
+  <!-- Admin Dashboard -->
+  <div id="dashboard" class="hidden">
+    <h1>MGBSDC Management Portal</h1>
+
+    <!-- Add Event -->
+    <div class="card">
+      <h3>Add New Event</h3>
+      <input type="text" id="event-title" placeholder="Event Title">
+      <input type="date" id="event-date">
+      <textarea id="event-desc" placeholder="Short Description"></textarea>
+      <label>Event Poster Image:</label>
+      <input type="file" id="event-poster">
+      <button onclick="addEvent()">Publish Event</button>
+    </div>
+
+    <!-- Add Motion -->
+    <div class="card">
+      <h3>Add New Motion</h3>
+      <textarea id="motion-text" placeholder="Motion Text (e.g. THW Ban Monopolies)"></textarea>
+      <input type="text" id="motion-category" placeholder="Category (e.g. Economics)">
+      <input type="text" id="motion-tournament" placeholder="Tournament Name">
+      <input type="number" id="motion-year" placeholder="Year" value="2026">
+      <button onclick="addMotion()">Publish Motion</button>
+    </div>
+  </div>
+
+  <script>
+    // --- REPLACE THESE WITH YOUR API KEYS FROM SUPABASE & CLOUDINARY ---
+    const SUPABASE_URL = 'YOUR_SUPABASE_PROJECT_URL';
+    const SUPABASE_ANON_KEY = 'YOUR_SUPABASE_ANON_KEY';
+    const CLOUDINARY_CLOUD_NAME = 'YOUR_CLOUDINARY_CLOUD_NAME';
+    const CLOUDINARY_PRESET = 'mgbsdc_preset';
+
+    const supabase = supabase.createClient(sb_publishable_AqLhjx66a1iC5WvSnjHXpw_LSLfcBNE);
+
+    function login() {
+      const pass = document.getElementById('admin-pass').value;
+      if (pass === 'mgbsdc2026') { // Change password here if you want
+        document.getElementById('login-box').classList.add('hidden');
+        document.getElementById('dashboard').classList.remove('hidden');
+      } else {
+        alert('Incorrect password!');
+      }
+    }
+
+    // Helper: Upload file to Cloudinary
+    async function uploadImage(fileInputId) {
+      const file = document.getElementById(fileInputId).files[0];
+      if (!file) return null;
+
+      const formData = new FormData();
+      formData.append('file', file);
+      formData.append('upload_preset', CLOUDINARY_PRESET);
+
+      const res = await fetch(`https://api.cloudinary.com/v1_1/${CLOUDINARY_CLOUD_NAME}/image/upload`, {
+        method: 'POST',
+        body: formData
+      });
+      const data = await res.json();
+      return data.secure_url;
+    }
+
+    // Add Event Function
+    async function addEvent() {
+      const title = document.getElementById('event-title').value;
+      const date = document.getElementById('event-date').value;
+      const desc = document.getElementById('event-desc').value;
+      const posterUrl = await uploadImage('event-poster');
+
+      const { error } = await supabase.from('events').insert([
+        { title, event_date: date, description: desc, poster_url: posterUrl }
+      ]);
+
+      if (error) alert('Error: ' + error.message);
+      else alert('Event successfully published to database!');
+    }
+
+    // Add Motion Function
+    async function addMotion() {
+      const text = document.getElementById('motion-text').value;
+      const category = document.getElementById('motion-category').value;
+      const tournament = document.getElementById('motion-tournament').value;
+      const year = document.getElementById('motion-year').value;
+
+      const { error } = await supabase.from('motions').insert([
+        { motion_text: text, category, tournament, year: parseInt(year) }
+      ]);
+
+      if (error) alert('Error: ' + error.message);
+      else alert('Motion added to Motion Bank!');
+    }
+  </script>
+</body>
+</html>
