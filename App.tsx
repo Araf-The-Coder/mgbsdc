@@ -157,7 +157,7 @@ const COUNCIL_MEMBERS: CouncilMember[] = [
     name: 'Salina Sultana',
     role: 'Moderator',
     bio: "Spearheading debate pedagogy, strategic motion analysis, and dedicated mentorship, fostering generations of champion speakers.",
-    image: 'https://res.cloudinary.com/dz7ulk8lb/image/upload/v1792700925/image_11c727e4_nxvzkx.jpg'
+    image: 'https://res.cloudinary.com/dz7ulk8lb/image/upload/v1792711492/image_11c727e4-removebg-preview_bfdx2h.png'
   }
 ];
 
@@ -416,7 +416,7 @@ const EC_2025: ECLeader[] = [
   { name: 'Sudipto Roy', role: 'Research & Development Secretary', image: 'https://res.cloudinary.com/dwposiqyd/image/upload/q_auto/f_auto/v1780895655/sudipto-removebg-preview_qzxmmu.png', fbLink: 'https://www.facebook.com/SudiPtoRoy.07' },
   { name: 'Abid Ibrahim', role: 'Office Secretary', image: 'https://res.cloudinary.com/dwposiqyd/image/upload/q_auto/f_auto/v1780895622/abidibrahim-removebg-preview_lwhmrw.png' },
   { name: 'Sahad Rahman Arikto', role: 'Assistant Office Secretary', image: 'https://res.cloudinary.com/dwposiqyd/image/upload/q_auto/f_auto/v1780895643/Unknown_cosufl.png' },
-  { name: 'Araf Al Samin', role: 'Executive Member & Web Developer', image: 'https://res.cloudinary.com/dwposiqyd/image/upload/q_auto/f_auto/v1780895584/Araf_Al_Samin-removebg-preview_jpxigj.png', fbLink: 'https://www.facebook.com/profile.php?id=61570414709460' },
+  { name: 'Araf Al Samin', role: 'Executive Member & Web Developer', image: 'https://res.cloudinary.com/dz7ulk8lb/image/upload/v1792714419/image_ef1581ea__1_-removebg-preview_1_ibjm6b.png', fbLink: 'https://www.facebook.com/profile.php?id=61570414709460' },
   { name: 'Nahid Hasan', role: 'Executive Member', image: 'https://res.cloudinary.com/dwposiqyd/image/upload/q_auto/f_auto/v1780895291/Nahid-removebg-preview_mwi5ao.png', fbLink: 'https://www.facebook.com/nahid.hasan.779373' },
   { name: 'Raisul Islam Jahin', role: 'Executive Member', image: 'https://res.cloudinary.com/dwposiqyd/image/upload/q_auto/f_auto/v1780895562/Jahin_bwojib.png', fbLink: 'https://www.facebook.com/SudiPtoRoy.07' },
   { name: 'Muizz Ahbab', role: 'Executive Member', image: 'https://res.cloudinary.com/dwposiqyd/image/upload/q_auto/f_auto/v1780895436/2Rajit_dzlrov.png', fbLink: 'https://www.facebook.com/muizz.ahbab' },
@@ -1953,7 +1953,7 @@ export default function App() {
                 <div className="md:col-span-5 flex flex-col items-center text-center">
                   <div className="pedestal-glow w-full h-56 flex items-end justify-center mb-4">
                     <img
-                      src="https://res.cloudinary.com/dwposiqyd/image/upload/q_auto/f_auto/v1780895584/Araf_Al_Samin-removebg-preview_jpxigj.png"
+                      src="https://res.cloudinary.com/dz7ulk8lb/image/upload/v1792714419/image_ef1581ea__1_-removebg-preview_1_ibjm6b.png"
                       alt="Araf Al Samin - Web Developer"
                       className="freestanding-figure h-52 w-auto max-w-full object-contain"
                     />
