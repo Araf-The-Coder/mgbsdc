@@ -9,7 +9,7 @@
     "preview": "vite preview",
     "clean": "rm -rf dist server.js",
     "lint": "tsc --noEmit"
- "esbuild": "^0.25.0"
+ "esbuild": "^0.25.0" 
   },
   "dependencies": {
     "@headlessui/react": "^1.7.17",
